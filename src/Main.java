@@ -47,16 +47,31 @@ public class Main {
             int result;
             char[] ops = new char[2];
             if (data.length == 3) {
-                str = str.substring(str.indexOf(data[0])+1);
+                if (Integer.parseInt(data[0]) == 10) {
+                    str = str.substring(str.indexOf(data[0])+2);
+                } else
+                {
+                    str = str.substring(str.indexOf(data[0])+1);
+                }
                 ops[0]= str.charAt(0);
-                str = str.substring(str.indexOf(data[1])+1);
+                if (Integer.parseInt(data[1]) == 10) {
+                    str = str.substring(str.indexOf(data[1])+2);
+                } else {
+                    str = str.substring(str.indexOf(data[1])+1);
+                }
+
                 ops[1]= str.charAt(0);
                 result = calculate(Integer.parseInt(data[0]), Integer.parseInt(data[1]), String.valueOf(ops[0]));
                 result = calculate(result, Integer.parseInt(data[2]), String.valueOf(ops[1]));
                 System.out.println("Результат = " + result);
             }
             else if (data.length == 2) {
-                str = str.substring(str.indexOf(data[0])+1);
+                if (Integer.parseInt(data[0]) == 10) {
+                    str = str.substring(str.indexOf(data[0])+2);
+                } else
+                {
+                    str = str.substring(str.indexOf(data[0])+1);
+                }
                 ops[0]= str.charAt(0);
                 result = calculate(Integer.parseInt(data[0]), Integer.parseInt(data[1]), String.valueOf(ops[0]));
                 System.out.println("Результат = " + result);
